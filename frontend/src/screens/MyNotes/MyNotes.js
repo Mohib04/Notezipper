@@ -17,7 +17,7 @@ const MyNotes = () => {
           </Button>
         </Link>
         {notes.map((note) => (
-          <Accordion defaultActiveKey="0">
+          <Accordion style={{ borderRadius: 2 }} defaultActiveKey="0">
             <Accordion.Item eventKey="0">
               <Accordion.Header>
                 <h4>{note.title}</h4>
