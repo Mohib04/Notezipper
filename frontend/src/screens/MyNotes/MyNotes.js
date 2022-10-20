@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import MainComponent from "../../components/MainComponent/MainComponent";
-import { Badge, Button, Card, Accordion } from "react-bootstrap";
+import { Badge, Button, Accordion } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import notes from "../../data/notes";
+import { useEffect } from "react";
+import axios from "axios";
 
 const MyNotes = () => {
+  const [notes, setNotes] = useState([]);
+
+  const fetchNotes = async () => {
+    const { data } = await axios.get("/api/notes");
+    setNotes(data);
+  };
+
+  useEffect(() => {
+    fetchNotes();
+  }, []);
+
   return (
     <div>
       <MainComponent title="Welcome to SRD Limited">
@@ -17,7 +29,11 @@ const MyNotes = () => {
           </Button>
         </Link>
         {notes.map((note) => (
-          <Accordion style={{ borderRadius: 2 }} defaultActiveKey="0">
+          <Accordion
+            key={note._id}
+            style={{ borderRadius: 2 }}
+            defaultActiveKey="0"
+          >
             <Accordion.Item eventKey="0">
               <Accordion.Header>
                 <h4>{note.title}</h4>
