@@ -23,6 +23,11 @@ const MyNotes = () => {
                 <h4>{note.title}</h4>
               </Accordion.Header>
               <Accordion.Body>
+                <h5>
+                  <Badge style={{ borderRadius: 2 }} bg="warning" text="dark">
+                    Category: {note.category}
+                  </Badge>
+                </h5>
                 <p>{note.content}</p>
                 <Button
                   style={{ marginRight: 5, borderRadius: 2 }}
