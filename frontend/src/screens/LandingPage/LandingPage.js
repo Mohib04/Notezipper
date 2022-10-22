@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Card, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const LandingPage = () => {
   return (
@@ -10,10 +11,14 @@ const LandingPage = () => {
           <Card.Body>
             <Card.Title></Card.Title>
             <Card.Text></Card.Text>
-            <Button className="m-1" variant="primary">
-              Login
-            </Button>
-            <Button variant="primary">Registration</Button>
+            <Link to="/login">
+              <Button className="m-1" variant="primary">
+                Login
+              </Button>
+            </Link>
+            <Link to="/registration">
+              <Button variant="primary">Registration</Button>
+            </Link>
           </Card.Body>
         </Card>
       </Container>
