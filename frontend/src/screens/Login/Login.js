@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import MainComponent from "../../components/MainComponent/MainComponent";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button, Form } from "react-bootstrap";
 import Loading from "../../components/Loading";
 import ErrorMessage from "../../components/ErrorMessage";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../actions/userActions";
 
-const Login = ({ history }) => {
+const Login = () => {
+  const history = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   // const [error, setError] = useState(false);
@@ -21,7 +22,7 @@ const Login = ({ history }) => {
 
   useEffect(() => {
     if (userInfo) {
-      history.push("/mynotes");
+      history.push("/");
       console.log(userInfo);
     }
   }, [history, userInfo]);

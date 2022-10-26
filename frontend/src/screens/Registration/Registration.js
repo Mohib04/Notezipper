@@ -49,6 +49,19 @@ const Registration = () => {
     console.log(email);
   };
 
+  // const postDetails = (pics) => {
+  //   if (!pics) {
+  //     return setPicMessage("Please Select an Image");
+  //   }
+  //   setPicMessage(null);
+
+  //   if (pics.type === "image/jpeg" || pics.type === "image/png") {
+  //     const data = new FormData();
+  //     data.append('file', pics)
+  //     data.append(upload_preset)
+  //   }
+  // };
+
   return (
     <MainComponent title={"Registration"}>
       {message && <ErrorMessage variant="danger">{message}</ErrorMessage>}
